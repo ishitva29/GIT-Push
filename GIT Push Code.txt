@@ -1,0 +1,47 @@
+mkdir GitProject
+cd GitProject
+
+git init -b main
+
+git config user.name "Student"
+git config user.email "student@gmail.com"
+
+echo "<h1>Welcome to My Website</h1>" > index.html
+
+git add index.html
+git commit -m "Initial commit"
+
+git branch feature-header
+git switch feature-header
+
+echo "<header>My Website Header</header>" >> index.html
+
+git add index.html
+git commit -m "Added website header"
+
+git switch main
+git merge feature-header
+
+git branch feature-update
+git switch feature-update
+
+echo "<h1>Welcome to Feature Branch</h1>" > index.html
+
+git add index.html
+git commit -m "Updated heading in feature branch"
+
+git switch main
+
+echo "<h1>Welcome to Main Branch</h1>" > index.html
+
+git add index.html
+git commit -m "Updated heading in main branch"
+
+git merge feature-update
+
+git add index.html
+git commit -m "Resolved merge conflict"
+
+git branch
+git log --oneline --graph --all
+git status
